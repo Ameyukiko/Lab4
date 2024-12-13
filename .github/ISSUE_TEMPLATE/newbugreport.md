@@ -1,51 +1,69 @@
 ---
-name: Feature Request
-about: Suggest a new feature for the project
-title: "Feature: "
+name: Bug Report
+description: File a bug report
+title: "[Bug] : "
+labels: ["bug", "triage"]
+projects: ["octo-org/1", "octo-org/44"]
+assignees:
+  - octocat
 body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this bug report!
   - type: input
     id: contact
     attributes:
       label: Contact Details
-      description: What is your name?
-      placeholder: ex. Aphichaya Suppakitkumjorn
+      description: How can we get in touch with you if we need more info?
+      placeholder: ex. email@example.com
+      validations:
+        required: false
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: Also tell us, what did you expect to happen?
+      placeholder: Tell us what you see!
+      value: "A bug happened!"
       validations:
         required: true
-  - type: markdown
-    attributes:
-      value: |
-        Thanks for taking the time to fill out this feature request!
   - type: dropdown
-    id: request-type
+    id: version
     attributes:
-      label: Type of request?
-      description: Select the type of your request
+      label: Version
+      description: What version of our software are you running?
       options:
-        - New Feature
-        - Improvement
-        - Other
+        - 1.0.2 (Default)
+        - 1.0.3 (Edge)
+      default: 0
       validations:
         required: true
   - type: dropdown
-    id: os
+    id: browsers
     attributes:
-      label: What is the OS which you want to suggest?
-      description: Selections
+      label: What browsers are you seeing the problem on?
+      multiple: true
       options:
         - Firefox
         - Chrome
         - Safari
         - Microsoft Edge
-      validations:
-        required: true
   - type: textarea
-    id: details
+    id: logs
     attributes:
-      label: What are the details of your suggestion?
-      description: Explain what you want
-      placeholder: Feature details!
-      validations:
-        required: true
+      label: Relevant log output
+      description: Please copy and paste any relevant log output. This will be automatically formatted into code, so no need for backticks.
+      render: shell
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you agree to follow our [Code of Conduct](https://example.com)
+      options:
+        - label: I agree to follow this project's Code of Conduct
+          required: true
+
 
 ---
 
